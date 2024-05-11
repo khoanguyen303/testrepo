@@ -1,0 +1,31 @@
+1. Giải nén file sinhvien1.rar
+2. Open folder trong Visual Studio code
+3. Copy đoạn mã sau vào pipelines.py ==> Để tạo file .csv
+
+with open('csvdataexamsrc1469953.csv', 'a', encoding='utf-8', newline='') as file:
+            writer = csv.writer(file, delimiter=',')
+            writer.writerow([
+                item['name1469953'],
+                item['genre1469953'],
+                item['type1469953'],
+                item['priceex1469953'],
+                item['pricein1469953'],
+                item['tax1469953'],
+                item['ava1469953'],
+                item['review1469953']
+            ])
+        return item
+
+4. Copy đoạn mã sau vào hàm def getBookDetail1469953(self, response):
+
+item = examsrcItem()
+        item['name1469953'] = response.xpath('normalize-space(string(//*[@id="content_inner"]/article/div[1]/div[2]/h1))').get()
+        item['genre1469953'] = response.xpath('normalize-space(string(//*[@id="default"]/div/div/ul/li[3]/a))').get()
+        item['type1469953'] = response.xpath('normalize-space(string(//*[@id="default"]/div/div/ul/li[2]/a))').get()
+        item['priceex1469953'] = response.xpath('normalize-space(string(//*[@id="content_inner"]/article/table[1]/tr[3]/td))').get()
+        item['pricein1469953'] = response.xpath('normalize-space(string(//*[@id="content_inner"]/article/table[1]/tr[4]/td))').get()
+        item['tax1469953'] = response.xpath('normalize-space(string(//*[@id="content_inner"]/article/table[1]/tr[5]/td))').get()
+        item['ava1469953'] = response.xpath('normalize-space(string(//*[@id="content_inner"]/article/table[1]/tr[6]/td))').get()
+        item['review1469953'] = response.xpath('normalize-space(string(//*[@id="content_inner"]/article/table[1]/tr[7]/td))').get() 
+        yield item
+
